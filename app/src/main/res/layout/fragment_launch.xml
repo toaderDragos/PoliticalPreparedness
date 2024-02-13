@@ -16,7 +16,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ballot_logo" />
+            app:srcCompat="@drawable/ballot_logo"
+            android:contentDescription="@string/main_image_Launch" />
 
         <Button
             android:id="@+id/upcomingElectionsButton"

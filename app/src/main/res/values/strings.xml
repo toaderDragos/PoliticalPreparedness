@@ -51,5 +51,6 @@
     <string name="zip">zip</string>
     <string name="election_description_error">This app operates only within the USA and requires a valid US ZIP Code to function correctly. Default Location: NY</string>
     <string name="staus_of_the_api">staus of the API</string>
+    <string name="main_image_Launch">Main image portraying a stylized hand that inserts a ballot into a box</string>
 
 </resources>

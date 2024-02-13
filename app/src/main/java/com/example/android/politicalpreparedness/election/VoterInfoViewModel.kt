@@ -36,7 +36,7 @@ class VoterInfoViewModel(app: Application, private val repository: ElectionRepos
     fun getVoterInfo(electionId: Int, voterAddress: Address) {
         viewModelScope.launch {
             val voterResult  = repository.getVoterInfo(electionId, voterAddress)
-            if (voterResult is com.example.android.politicalpreparedness.database.utils.Result.Success) {
+            if (voterResult is Result.Success) {
                 voterInfo.value = voterResult.data
 
                 _votingLocationFinderUrl.value = voterInfo.value?.state?.firstOrNull()?.electionAdministrationBody?.votingLocationFinderUrl

@@ -232,7 +232,7 @@ class RepresentativeFragment : Fragment() {
             }
         }
         locationSettingsResponseTask?.addOnCompleteListener {
-            println("dra: in step 5 the location device settings succes: ${it.isSuccessful}")
+            println("dra: in step 5 the location device settings success: ${it.isSuccessful}")
             if (it.isSuccessful) {
                 Toast.makeText(context, "Device location turned on", Toast.LENGTH_SHORT).show()
                 getCurrentLocation()
@@ -284,7 +284,7 @@ class RepresentativeFragment : Fragment() {
                         binding.stateSpinner.setSelection(getIndexForState(requireContext(), "NY"))
                     }
                     Address(address.thoroughfare, address.subThoroughfare, address.locality, address.adminArea, address.postalCode)
-                }?.get(0) ?: Address("Error in Dragos's app in map", "yes yes yes yes", "Shkbidi Bum", "Bum Bum Bum", "11239")
+                }?.get(0) ?: Address("Error in Dragos's app in map", "Reverting to default address", "", "NY", "11239")
         } else {
             Address("Error: Outside USA", "App works exclusively in USA", "NY", "NY", "11239")
         }
