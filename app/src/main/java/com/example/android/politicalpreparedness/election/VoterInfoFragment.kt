@@ -326,7 +326,7 @@ class VoterInfoFragment : Fragment() {
                 Address("Geocoder is null", "", "", "", "")
             }
             } catch (e: IOException) {
-                Address("No internet connection", "yes yes yes yes", "Shkbidi Bum", "Bum Bum Bum", "")
+                Address("No internet connection", "", "", "", "")
             }
         }
 

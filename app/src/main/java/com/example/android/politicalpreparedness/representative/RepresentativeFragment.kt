@@ -29,11 +29,13 @@ import com.google.android.gms.location.LocationServices
 import com.google.android.gms.location.LocationSettingsRequest
 import com.google.android.gms.location.Priority
 import com.google.android.gms.tasks.CancellationTokenSource
+import com.google.android.material.internal.ViewUtils.hideKeyboard
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
+import kotlinx.io.IOException
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import timber.log.Timber
 import java.util.Locale
@@ -272,21 +274,42 @@ class RepresentativeFragment : Fragment() {
     /***  Helper function to process the extracted location */
     private fun geoCodeLocation(location: Location): Address {
         val geocoder = context?.let { Geocoder(it, Locale.getDefault()) }
-        return if (geocoder != null) {
-            geocoder.getFromLocation(location.latitude, location.longitude, 1)
-                ?.map { address ->
-                    if (address.postalCode == null) {
-                        address.postalCode = "11239"
-                        address.adminArea = "NY"
-                        address.locality = "NY"
-                        address.thoroughfare = "App works only in USA"
-                        address.subThoroughfare = "Reverting to default address"
-                        binding.stateSpinner.setSelection(getIndexForState(requireContext(), "NY"))
-                    }
-                    Address(address.thoroughfare, address.subThoroughfare, address.locality, address.adminArea, address.postalCode)
-                }?.get(0) ?: Address("Error in Dragos's app in map", "Reverting to default address", "", "NY", "11239")
-        } else {
-            Address("Error: Outside USA", "App works exclusively in USA", "NY", "NY", "11239")
+        return try {
+            if (geocoder != null) {
+                geocoder.getFromLocation(location.latitude, location.longitude, 1)
+                    ?.map { address ->
+                        if (address.postalCode == null) {
+                            address.postalCode = "11239"
+                            address.adminArea = "NY"
+                            address.locality = "NY"
+                            address.thoroughfare = "App works only in USA"
+                            address.subThoroughfare = "Reverting to default address"
+                            binding.stateSpinner.setSelection(
+                                getIndexForState(
+                                    requireContext(),
+                                    "NY"
+                                )
+                            )
+                        }
+                        Address(
+                            address.thoroughfare,
+                            address.subThoroughfare,
+                            address.locality,
+                            address.adminArea,
+                            address.postalCode
+                        )
+                    }?.get(0) ?: Address(
+                    "Error in Dragos's app in map",
+                    "Reverting to default address",
+                    "",
+                    "NY",
+                    "11239"
+                )
+            } else {
+                Address("Error: Outside USA", "App works exclusively in USA", "NY", "NY", "11239")
+            }
+        } catch (e: IOException) {
+            Address("Error in connecting to the server", "No address found", "", "NY", "11239")
         }
     }
 
