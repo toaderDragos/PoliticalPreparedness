@@ -51,16 +51,15 @@ class RepresentativeFragment : Fragment() {
         LocationServices.getFusedLocationProviderClient(requireActivity())
     }
     private val scope = CoroutineScope(Dispatchers.Main)
-
-    // Declare ViewModel
     val _viewModel: RepresentativeViewModel by viewModel()
+    private lateinit var binding: FragmentRepresentativeBinding
 
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
 
         // Establish bindings
-        val binding = FragmentRepresentativeBinding.inflate(inflater)
+        binding = FragmentRepresentativeBinding.inflate(inflater)
         binding.lifecycleOwner = this
 
         binding.viewModel = _viewModel
@@ -282,6 +281,7 @@ class RepresentativeFragment : Fragment() {
                         address.locality = "NY"
                         address.thoroughfare = "App works only in USA"
                         address.subThoroughfare = "Reverting to default address"
+                        binding.stateSpinner.setSelection(getIndexForState(requireContext(), "NY"))
                     }
                     Address(address.thoroughfare, address.subThoroughfare, address.locality, address.adminArea, address.postalCode)
                 }?.get(0) ?: Address("Error in Dragos's app in map", "yes yes yes yes", "Shkbidi Bum", "Bum Bum Bum", "11239")

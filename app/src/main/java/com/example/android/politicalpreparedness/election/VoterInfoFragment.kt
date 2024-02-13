@@ -47,7 +47,7 @@ import java.util.TimeZone
 class VoterInfoFragment : Fragment() {
 
     val viewModel: VoterInfoViewModel by viewModel()
-    lateinit var _binding: FragmentVoterInfoBinding
+    private lateinit var _binding: FragmentVoterInfoBinding
     private var addressFromGeolocation: Address? = null
 
     // Identical, boilerplate code like in RepresentativeFragment
