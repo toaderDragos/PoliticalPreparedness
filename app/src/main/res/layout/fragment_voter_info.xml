@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Data binding node for Voter Info ViewModel -->
+    <data>
+        <variable
+            name="voterInfo"
+            type= "com.example.android.politicalpreparedness.network.models.VoterInfoResponse"
+            />
+
+        <variable
+            name="election"
+            type="com.example.android.politicalpreparedness.network.models.Election" />
+
+        <variable
+            name="viewModel"
+            type="com.example.android.politicalpreparedness.election.VoterInfoViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.android.politicalpreparedness.MainActivity">
+
+        <TextView
+            android:id="@+id/election_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/RecyclerviewTitleStyle"
+            android:gravity="center_horizontal"
+            android:text="@{election.name}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:hint="@string/name_of_the_election"
+            android:maxLines="3"/>
+
+        <TextView
+            android:id="@+id/election_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_marginStart="8dp"
+            android:layout_margin="@dimen/default_padding"
+            app:layout_constraintTop_toBottomOf="@id/election_name"
+            tools:text="12 November 2055" />
+
+        <View
+            android:id="@+id/separator"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:backgroundTint="#2C2D2E"
+            app:layout_constraintTop_toBottomOf="@id/election_date" />
+
+        <TextView
+            android:id="@+id/state_header"
+            style="@style/RecyclerviewTitleStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_small"
+            android:text="@string/election_information"
+            android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/election_date"
+            app:layout_constraintTop_toBottomOf="@id/election_date" />
+
+<!--        a description field under Election Information text-->
+        <TextView
+            android:id="@+id/election_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#F44336"
+            android:layout_margin="@dimen/default_padding"
+            app:layout_constraintBottom_toTopOf="@+id/voting_locations_link"
+            app:layout_constraintTop_toBottomOf="@id/state_header"
+            tools:text="This is a description of the election" />
+
+        <Button
+            android:id="@+id/voting_locations_link"
+            style="@style/big_button_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="@string/voting_locations"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/state_header" />
+
+        <Button
+            android:id="@+id/ballot_information_link"
+            style="@style/big_button_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ballot_information_link"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/voting_locations_link" />
+
+        <!-- Button to save election to Room -->
+        <Button
+            android:id="@+id/button_follow_election"
+            style="@style/big_button_style"
+            android:layout_marginBottom="10dp"
+            android:text="@string/follow_election"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/election_date"
+            app:layout_constraintStart_toStartOf="@id/election_date" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+
+    <!--            android:onClick="@{() -> viewModel.followElection()}"-->

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Political Preparedness</string>
+    <string name="find_my_representatives">Find my representatives</string>
+    <string name="settings">Settings</string>
+    <string name="upcoming_elections">Upcoming elections</string>
+    <string name="representative_detail">Representative Detail</string>
+    <string name="election_detail">Election Detail</string>
+    <string name="voter_info">Voter Info</string>
+    <string name="address_label">Address</string>
+    <string name="state_label">State</string>
+    <string name="state_hint">Select state</string>
+    <string name="country_label">Country</string>
+    <string name="country_hint">Select country</string>
+    <string name="submit">Submit</string>
+    <string name="follow">Follow</string>
+    <string name="unfollow">Unfollow</string>
+    <string name="no_elections">No elections found</string>
+    <string name="no_voter_info">No voter info found</string>
+    <string name="no_representatives">No representatives found</string>
+    <string name="elections">Elections</string>
+    <string name="representatives">Representatives</string>
+    <string name="my_representatives">My Representatives</string>
+    <string name="address_is_required">Address is required</string>
+    <string name="election_id_is_required">Election ID is required</string>
+    <string name="election_name_is_required">Election name is required</string>
+    <string name="election_date_is_required">Election date is required</string>
+    <string name="election_division_is_required">Election division is required</string>
+    <string name="election_is_saved">Election is saved</string>
+    <string name="election_is_deleted">Election is deleted</string>
+    <string name="saved_elections">Saved Elections</string>
+    <string name="name_of_election">Name of Election</string>
+    <string name="date_of_election">Date of Election</string>
+    <string name="follow_election">FOLLOW ELECTION</string>
+    <string name="unfollow_election">UNFOLLOW ELECTION</string>
+    <string name="election_information">Election Information</string>
+    <string name="use_my_location">Use My Location</string>
+    <string name="representative_search">Representative Search</string>
+    <string name="permission_denied_explanation">To automatically populate the fields you need to give location permissions</string>
+    <string name="location_required_error">Activate the location services for this feature to work</string>
+    <string name="ballot_information_link">Ballot Information Link</string>
+    <string name="voting_locations">Voting locations</string>
+    <string name="name_of_the_election">Name of the election</string>
+    <string name="photo_of_the_person">photo of the person</string>
+    <string name="website_link">website link</string>
+    <string name="facebook_link">facebook link</string>
+    <string name="twitter_link">twitter link</string>
+    <string name="address_line_1">Address Line 1</string>
+    <string name="address_line_2">Address Line 2</string>
+    <string name="city">City</string>
+    <string name="zip">zip</string>
+    <string name="election_description_error">This app operates only within the USA and requires a valid US ZIP Code to function correctly. Default Location: NY</string>
+    <string name="staus_of_the_api">staus of the API</string>
+
+</resources>

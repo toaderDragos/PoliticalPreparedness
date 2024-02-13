@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="election"
+            type= "com.example.android.politicalpreparedness.network.models.Election" />
+
+        <variable
+            name = "customClick"
+            type = "com.example.android.politicalpreparedness.election.adapter.ElectionListAdapter.CustomOnClickListener"/>
+
+        <variable
+            name="viewModel"
+            type="com.example.android.politicalpreparedness.election.ElectionsViewModel" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_very_small"
+        app:cardCornerRadius="4dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:onClick="@{()->customClick.onClick(election)}" >
+
+            <TextView
+                android:id="@+id/item_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{election.name}"
+                android:textSize="16sp"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginStart="@dimen/margin_medium"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="John Doe" />
+
+            <TextView
+                android:id="@+id/item_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{election.electionDay.toString()}"
+                android:textSize="13sp"
+                android:layout_marginStart="@dimen/margin_medium"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/item_name"
+                tools:text="A sunny day "/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+
+</layout>
