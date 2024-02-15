@@ -1,6 +1,7 @@
 package com.example.android.politicalpreparedness
 
 import android.app.Application
+import androidx.lifecycle.SavedStateHandle
 import com.example.android.politicalpreparedness.database.ElectionDataSource
 import com.example.android.politicalpreparedness.database.ElectionDatabase
 import com.example.android.politicalpreparedness.database.ElectionRepository
@@ -36,8 +37,12 @@ class MyApp : Application() {
             viewModel {
                 VoterInfoViewModel(get(), get() as ElectionRepository)
             }
-            viewModel {
-                RepresentativeViewModel(get(), get() as ElectionRepository)
+            viewModel { (handle: SavedStateHandle) ->
+                RepresentativeViewModel(
+                    app = get(),
+                    repository = get(),
+                    savedStateHandle = handle
+                )
             }
 
             // Declare singleton definitions to be later injected using by inject()

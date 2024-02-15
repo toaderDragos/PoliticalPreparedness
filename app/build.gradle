@@ -66,6 +66,8 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-extensions:$version_lifecycle_extensions"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$archLifecycleVersion"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$archLifecycleVersion"
+    // Saved state module for ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0"
 
     // Navigation
     implementation "androidx.navigation:navigation-fragment-ktx:$version_navigation"
@@ -106,5 +108,6 @@ dependencies {
     testImplementation "io.insert-koin:koin-test-junit5:$koinVersion"
     // Koin for Android
     implementation "io.insert-koin:koin-android:$koinVersion"
-
+    // Koin for AndroidX ViewModel
+     // implementation "io.insert-koin:koin-androidx-viewmodel:$koinVersion"
 }

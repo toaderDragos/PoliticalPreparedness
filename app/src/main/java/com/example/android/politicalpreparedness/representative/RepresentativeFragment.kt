@@ -29,7 +29,6 @@ import com.google.android.gms.location.LocationServices
 import com.google.android.gms.location.LocationSettingsRequest
 import com.google.android.gms.location.Priority
 import com.google.android.gms.tasks.CancellationTokenSource
-import com.google.android.material.internal.ViewUtils.hideKeyboard
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -73,6 +72,9 @@ class RepresentativeFragment : Fragment() {
         savedInstanceState?.let {
             val currentState = it.getInt("motionLayoutState")
             binding.representativeMotionLayout.transitionToState(currentState)
+
+            _viewModel.representativesForSaveInstanceState.value
+
         }
 
         _viewModel.representatives.observe(viewLifecycleOwner) {
@@ -82,6 +84,12 @@ class RepresentativeFragment : Fragment() {
             // Populate Representative adapter
                 adapter.submitList(_viewModel.representatives.value)
                 adapter.notifyDataSetChanged()
+        }
+
+        _viewModel.representativesForSaveInstanceState.observe(viewLifecycleOwner) {
+            // Populate Representative adapter
+            adapter.submitList(_viewModel.representativesForSaveInstanceState.value)
+            adapter.notifyDataSetChanged()
         }
 
         // Button listeners for field and location search
@@ -130,6 +138,7 @@ class RepresentativeFragment : Fragment() {
         super.onSaveInstanceState(outState)
         // Save the current state of the MotionLayout
         outState.putInt("motionLayoutState", binding.representativeMotionLayout.currentState)
+        // The information inside the recyclerview is already saved in the savedStateHandle after the API call
     }
 
     // Helper function to get the index for the selected state in the spinner
