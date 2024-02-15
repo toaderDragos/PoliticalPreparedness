@@ -22,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_very_small"
-        app:cardCornerRadius="4dp">
+        app:cardCornerRadius="@dimen/margin_very_small">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -34,7 +34,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@{election.name}"
-                android:textSize="16sp"
+                android:textSize="@dimen/button_text_height"
                 android:textColor="@color/colorPrimary"
                 android:layout_marginStart="@dimen/margin_medium"
                 app:layout_constraintStart_toStartOf="parent"
@@ -46,7 +46,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@{election.electionDay.toString()}"
-                android:textSize="13sp"
+                android:textSize="@dimen/description_text_height"
                 android:layout_marginStart="@dimen/margin_medium"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/item_name"

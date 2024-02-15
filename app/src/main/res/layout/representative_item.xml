@@ -18,7 +18,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_small"
+        android:layout_margin="@dimen/margin_very_small"
         android:padding="@dimen/margin_medium"
         android:backgroundTint="#DDEAE7"
         app:cardCornerRadius="10dp">
@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:text="@{representative.office.name}"
                 android:layout_marginStart="@dimen/margin_very_small"
-                android:textSize="18sp"
+                android:textSize="@dimen/title_text_medium"
                 android:maxLines="2"
                 app:layout_constraintStart_toEndOf="@+id/ic_profile"
                 app:layout_constraintTop_toTopOf="parent"
@@ -43,9 +43,8 @@
                 android:id="@+id/representative_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="-2dp"
                 android:text="@{representative.official.name}"
-                android:textSize="14sp"
+                android:textSize="@dimen/description_text_height"
                 app:layout_constraintStart_toStartOf="@+id/representative_position"
                 app:layout_constraintTop_toBottomOf="@+id/representative_position"
                 tools:text="John Doe" />
@@ -55,15 +54,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@{representative.official.party}"
-                android:textSize="14sp"
+                android:textSize="@dimen/description_text_height"
                 app:layout_constraintStart_toStartOf="@+id/representative_name"
                 app:layout_constraintTop_toBottomOf="@+id/representative_name"
                 tools:text="Liberal Party" />
 
             <ImageView
                 android:id="@+id/ic_profile"
-                android:layout_width="65dp"
-                android:layout_height="65dp"
+                android:layout_width="@dimen/image_item_size"
+                android:layout_height="@dimen/image_item_size"
                 android:layout_margin="@dimen/margin_very_small"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -76,7 +75,7 @@
                 android:id="@+id/wwwIcon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="6dp"
+                android:layout_marginEnd="@dimen/spacing_link_button"
                 android:background="@android:color/transparent"
                 app:layout_constraintBottom_toBottomOf="@+id/facebookIcon"
                 app:layout_constraintEnd_toStartOf="@+id/facebookIcon"
@@ -89,7 +88,7 @@
                 android:id="@+id/facebookIcon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="6dp"
+                android:layout_marginEnd="@dimen/spacing_link_button"
                 android:background="@android:color/transparent"
                 android:scaleType="centerInside"
                 app:layout_constraintBottom_toBottomOf="@+id/representative_party"
@@ -102,7 +101,7 @@
                 android:id="@+id/twitterIcon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="6dp"
+                android:layout_marginEnd="@dimen/spacing_link_button"
                 android:background="@android:color/transparent"
                 android:scaleType="centerInside"
                 app:layout_constraintBottom_toBottomOf="@+id/representative_party"
@@ -110,7 +109,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/representative_position"
                 app:srcCompat="@drawable/ic_twitter"
                 android:contentDescription="@string/twitter_link" />
-
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

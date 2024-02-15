@@ -22,7 +22,7 @@
         <Button
             android:id="@+id/upcomingElectionsButton"
             style="@style/big_button_style"
-            android:layout_marginBottom="-5dp"
+            android:layout_marginBottom="@dimen/margin_negative"
             android:text="@string/upcoming_elections"
             app:layout_constraintBottom_toTopOf="@+id/findMyRepsButton"
             app:layout_constraintEnd_toEndOf="parent"
@@ -33,7 +33,7 @@
             android:text="@string/find_my_representatives"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="@dimen/margin_medium"
             app:layout_constraintStart_toStartOf="parent"
             style="@style/big_button_style" />
 

@@ -10,6 +10,7 @@
     </data>
 
     <androidx.constraintlayout.motion.widget.MotionLayout
+        android:id="@+id/representative_motion_layout"
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         app:layoutDescription="@xml/fragment_representative_scene">
@@ -86,7 +87,7 @@
         <Button
             android:id="@+id/button_search"
             style="@style/big_button_style"
-            android:layout_marginBottom="-5dp"
+            android:layout_marginBottom="@dimen/margin_negative"
             android:text="@string/find_my_representatives"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -95,7 +96,7 @@
         <Button
             android:id="@+id/button_location"
             style="@style/big_button_style"
-            android:layout_marginBottom="-5dp"
+            android:layout_marginBottom="@dimen/margin_negative"
             android:text="@string/use_my_location"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

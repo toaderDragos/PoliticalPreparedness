@@ -63,12 +63,17 @@ class RepresentativeFragment : Fragment() {
         // Establish bindings
         binding = FragmentRepresentativeBinding.inflate(inflater)
         binding.lifecycleOwner = this
-
         binding.viewModel = _viewModel
 
         // Define and assign Representative adapter
         val adapter = RepresentativeListAdapter()
         binding.recyclerRepresentatives.adapter = adapter
+
+        // Check if there's a saved state
+        savedInstanceState?.let {
+            val currentState = it.getInt("motionLayoutState")
+            binding.representativeMotionLayout.transitionToState(currentState)
+        }
 
         _viewModel.representatives.observe(viewLifecycleOwner) {
             if (it.isEmpty()) {
@@ -112,12 +117,19 @@ class RepresentativeFragment : Fragment() {
             checkPermissionsGetAddressAndGetRepresentativesFromAPIFlow()
         }
 
-        // Populate the state spinner
+        // Populate the US States spinner
         _viewModel.state.observe(viewLifecycleOwner) { newState ->
             val stateIndex = getIndexForState(requireContext(), newState)
             binding.stateSpinner.setSelection(stateIndex)
         }
         return binding.root
+    }
+
+    /***  Save the current motion layout state - used for device rotations, etc */
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        // Save the current state of the MotionLayout
+        outState.putInt("motionLayoutState", binding.representativeMotionLayout.currentState)
     }
 
     // Helper function to get the index for the selected state in the spinner
